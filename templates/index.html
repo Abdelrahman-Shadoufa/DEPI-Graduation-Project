@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">Customer Churn Prediction</h1>
+        <div class="card p-4 shadow">
+            <form id="predict-form">
+                <div class="row">
+                    <!-- Numeric Inputs -->
+                    <div class="col-md-6 mb-3">
+                        <label for="Age" class="form-label">Age</label>
+                        <input type="number" class="form-control" id="Age" name="Age" required min="18" max="100">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Tenure" class="form-label">Tenure (months)</label>
+                        <input type="number" class="form-control" id="Tenure" name="Tenure" required min="0">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Usage Frequency" class="form-label">Usage Frequency</label>
+                        <input type="number" class="form-control" id="Usage Frequency" name="Usage Frequency" required min="0">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Support Calls" class="form-label">Support Calls</label>
+                        <input type="number" class="form-control" id="Support Calls" name="Support Calls" required min="0">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Payment Delay" class="form-label">Payment Delay (days)</label>
+                        <input type="number" class="form-control" id="Payment Delay" name="Payment Delay" required min="0">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Total Spend" class="form-label">Total Spend</label>
+                        <input type="number" class="form-control" id="Total Spend" name="Total Spend" required min="0">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Last Interaction" class="form-label">Last Interaction (days)</label>
+                        <input type="number" class="form-control" id="Last Interaction" name="Last Interaction" required min="0">
+                    </div>
+                    <!-- Categorical Inputs -->
+                    <div class="col-md-6 mb-3">
+                        <label for="Gender" class="form-label">Gender</label>
+                        <select class="form-select" id="Gender" name="Gender" required>
+                            <option value="" disabled selected>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Subscription Type" class="form-label">Subscription Type</label>
+                        <select class="form-select" id="Subscription Type" name="Subscription Type" required>
+                            <option value="" disabled selected>Select Subscription</option>
+                            <option value="Basic">Basic</option>
+                            <option value="Premium">Premium</option>
+                            <option value="Standard">Standard</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Contract Length" class="form-label">Contract Length</label>
+                        <select class="form-select" id="Contract Length" name="Contract Length" required>
+                            <option value="" disabled selected>Select Contract</option>
+                            <option value="Annual">Annual</option>
+                            <option value="Monthly">Monthly</option>
+                            <option value="Quarterly">Quarterly</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Predict Churn</button>
+            </form>
+            <div id="result" class="mt-4"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
